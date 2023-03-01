@@ -27,7 +27,7 @@ www.janedoe.com.
 
 <!-- header 1 -->
 
-# Abstract
+# Abstract {-}
 
 <!-- paragraph 1 -->
 
@@ -55,7 +55,7 @@ Sociis curae viverra lorem vitae in natoque ut.
 
 <!-- header 2 -->
 
-# 1. Introduction
+# Introduction
 
 <!-- paragraph 2 -->
 
@@ -142,35 +142,31 @@ torquent, vitae, ut tempus. Sed dictum non hendrerit in
 
 <!-- header 3 -->
 
-# 2. Literature Review
+# Literature Review
 
 <!-- paragraph 7 -->
 
-Sit nunc auctor at id diam <!-- citation -->. Tempus platea eu.
+Sit nunc auctor at id diam [@bennett2015]. Tempus platea eu.
 Scelerisque facilisis rhoncus eu lacus vivamus ac, ut. Orci nec metus
 nullam sed et quis. Magnis in vitae, feugiat eleifend dignissim vitae.
 Leo hac sed suscipit quis rhoncus nunc tincidunt. Mi nibh lectus
 faucibus tellus diam sed, convallis. Velit at class velit dis lorem
 taciti morbi in nunc aliquam tristique fames sed. Eu lectus gravida
-congue augue id semper magna libero <!-- citation -->.
+congue augue id semper magna libero [@gilbert2019 216].
 
 <!-- paragraph 8 -->
 
-<!-- citation -->
-
-sed et natoque, donec pulvinar sollicitudin quisque vivamus. Tortor,
+@gilbert2019 sed et natoque, donec pulvinar sollicitudin quisque vivamus. Tortor,
 lacus morbi at dui aenean amet laoreet elit. Viverra magna litora magna,
 sapien. Donec mi class in integer. Nulla vel ullamcorper tristique dis
 et, sociosqu vel. Pellentesque at mauris pellentesque volutpat non purus
 aenean quam. Congue interdum, id amet class libero, ac velit neque.
 Vitae odio nisl in et, proin, sed sit. Est fames mus pellentesque
-sagittis velit <!-- citation -->.
+sagittis velit [for example, see @bennett2015].
 
 <!-- paragraph 9 -->
 
-<!-- citation -->
-
-'mus auctor' ipsum. Himenaeos metus in fames aliquam. Erat et eget ut
+@xie2019 [12] 'mus auctor' ipsum. Himenaeos metus in fames aliquam. Erat et eget ut
 ipsum augue tincidunt elit venenatis. Dapibus in malesuada, tincidunt
 rhoncus nostra. Orci in, vestibulum. Ullamcorper sem conubia in.
 Molestie eu taciti non consequat. Et eu enim montes class leo varius
@@ -182,7 +178,7 @@ Et felis justo orci sit eu est tincidunt facilisis convallis. Cubilia
 nisl enim amet sociis sed platea habitasse pellentesque. Sodales non
 suscipit, eros consectetur. Vel suspendisse purus congue sed sed ut et.
 Ultrices ut sem. Urna volutpat vivamus velit, consectetur molestie
-turpis in <!-- citation -->.
+turpis in [@bennett2015; @delgado2010].
 
 <!-- paragraph 10 -->
 
@@ -246,7 +242,7 @@ consequat mattis vitae, rhoncus egestas iaculis in montes.
 
 <!-- header 4 -->
 
-# 3. Theory and Hypotheses
+# Theory and Hypotheses
 
 <!-- paragraph 13 -->
 
@@ -263,7 +259,7 @@ quam.
 
 <!-- header 5 -->
 
-## 3.1 First Hypothesis
+## First Hypothesis
 
 <!-- paragraph 14 -->
 
@@ -299,7 +295,7 @@ tempor blandit.
 
 <!-- header 6 -->
 
-## 3.2 Second Hypothesis
+## Second Hypothesis
 
 <!-- paragraph 16 -->
 
@@ -379,7 +375,7 @@ suscipit. Habitant enim pharetra in, augue lectus sed tortor at?
 
 <!-- header 7 -->
 
-# 4. Data and Methods
+# Data and Methods
 
 <!-- paragraph 21 -->
 
@@ -482,7 +478,7 @@ suspendisse.
 
 <!-- header 8 -->
 
-# 5. Results
+# Results
 
 <!-- paragraph 27 -->
 
@@ -586,7 +582,7 @@ tincidunt sed. Tincidunt ac pulvinar dictum lorem litora, sed per quis.
 
 <!-- header 9 -->
 
-# 6. Conclusion
+# Conclusion
 
 <!-- paragraph 33 -->
 

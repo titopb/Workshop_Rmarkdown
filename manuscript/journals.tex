@@ -52,7 +52,31 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{setspace}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -65,7 +89,7 @@
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
-  citecolor={red},
+  citecolor={Blue},
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
@@ -96,7 +120,8 @@ University of Random. Email:
 Website: www.janedoe.com.
 
 \hypertarget{abstract}{%
-\section{Abstract}\label{abstract}}
+\section*{Abstract}\label{abstract}}
+\addcontentsline{toc}{section}{Abstract}
 
 Laoreet est, at turpis, et et sodales in volutpat arcu magna massa. At,
 rutrum felis fringilla. Turpis aliquam ante dictum, viverra. Aliquam
@@ -119,7 +144,7 @@ Sociis curae viverra lorem vitae in natoque ut.
 Tincidunt Cubilia
 
 \hypertarget{introduction}{%
-\section{1. Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}}
 
 Vestibulum, \textbf{sociis ipsum}. Massa, sed ac eu fringilla sed luctus
 sodales, sit porttitor non. Iaculis litora, accumsan facilisis lacinia
@@ -194,37 +219,41 @@ torquent, vitae, ut tempus. Sed dictum non hendrerit in --- urna, non
 quis in cum sit turpis viverra vel nullam.
 
 \hypertarget{literature-review}{%
-\section{2. Literature Review}\label{literature-review}}
+\section{Literature Review}\label{literature-review}}
 
-Sit nunc auctor at id diam . Tempus platea eu. Scelerisque facilisis
-rhoncus eu lacus vivamus ac, ut. Orci nec metus nullam sed et quis.
-Magnis in vitae, feugiat eleifend dignissim vitae. Leo hac sed suscipit
-quis rhoncus nunc tincidunt. Mi nibh lectus faucibus tellus diam sed,
-convallis. Velit at class velit dis lorem taciti morbi in nunc aliquam
-tristique fames sed. Eu lectus gravida congue augue id semper magna
-libero .
+Sit nunc auctor at id diam (\protect\hyperlink{ref-bennett2015}{Bennett,
+2015}). Tempus platea eu. Scelerisque facilisis rhoncus eu lacus vivamus
+ac, ut. Orci nec metus nullam sed et quis. Magnis in vitae, feugiat
+eleifend dignissim vitae. Leo hac sed suscipit quis rhoncus nunc
+tincidunt. Mi nibh lectus faucibus tellus diam sed, convallis. Velit at
+class velit dis lorem taciti morbi in nunc aliquam tristique fames sed.
+Eu lectus gravida congue augue id semper magna libero
+(\protect\hyperlink{ref-gilbert2019}{Gilbert, 2019, p. 216}).
 
-sed et natoque, donec pulvinar sollicitudin quisque vivamus. Tortor,
-lacus morbi at dui aenean amet laoreet elit. Viverra magna litora magna,
-sapien. Donec mi class in integer. Nulla vel ullamcorper tristique dis
-et, sociosqu vel. Pellentesque at mauris pellentesque volutpat non purus
-aenean quam. Congue interdum, id amet class libero, ac velit neque.
-Vitae odio nisl in et, proin, sed sit. Est fames mus pellentesque
-sagittis velit .
+Gilbert (\protect\hyperlink{ref-gilbert2019}{2019}) sed et natoque,
+donec pulvinar sollicitudin quisque vivamus. Tortor, lacus morbi at dui
+aenean amet laoreet elit. Viverra magna litora magna, sapien. Donec mi
+class in integer. Nulla vel ullamcorper tristique dis et, sociosqu vel.
+Pellentesque at mauris pellentesque volutpat non purus aenean quam.
+Congue interdum, id amet class libero, ac velit neque. Vitae odio nisl
+in et, proin, sed sit. Est fames mus pellentesque sagittis velit (for
+example, see \protect\hyperlink{ref-bennett2015}{Bennett, 2015}).
 
-`mus auctor' ipsum. Himenaeos metus in fames aliquam. Erat et eget ut
-ipsum augue tincidunt elit venenatis. Dapibus in malesuada, tincidunt
-rhoncus nostra. Orci in, vestibulum. Ullamcorper sem conubia in.
-Molestie eu taciti non consequat. Et eu enim montes class leo varius
-parturient ridiculus nec. Sem nostra, convallis condimentum netus
-finibus blandit pellentesque justo morbi tempor. Hendrerit ut commodo
-dictumst magnis purus amet neque pellentesque himenaeos. Pharetra et
-odio aptent velit. Faucibus tristique maecenas dis maximus in dapibus.
-Et felis justo orci sit eu est tincidunt facilisis convallis. Cubilia
-nisl enim amet sociis sed platea habitasse pellentesque. Sodales non
-suscipit, eros consectetur. Vel suspendisse purus congue sed sed ut et.
-Ultrices ut sem. Urna volutpat vivamus velit, consectetur molestie
-turpis in .
+Xie (\protect\hyperlink{ref-xie2019}{2019, p. 12}) `mus auctor' ipsum.
+Himenaeos metus in fames aliquam. Erat et eget ut ipsum augue tincidunt
+elit venenatis. Dapibus in malesuada, tincidunt rhoncus nostra. Orci in,
+vestibulum. Ullamcorper sem conubia in. Molestie eu taciti non
+consequat. Et eu enim montes class leo varius parturient ridiculus nec.
+Sem nostra, convallis condimentum netus finibus blandit pellentesque
+justo morbi tempor. Hendrerit ut commodo dictumst magnis purus amet
+neque pellentesque himenaeos. Pharetra et odio aptent velit. Faucibus
+tristique maecenas dis maximus in dapibus. Et felis justo orci sit eu
+est tincidunt facilisis convallis. Cubilia nisl enim amet sociis sed
+platea habitasse pellentesque. Sodales non suscipit, eros consectetur.
+Vel suspendisse purus congue sed sed ut et. Ultrices ut sem. Urna
+volutpat vivamus velit, consectetur molestie turpis in
+(\protect\hyperlink{ref-bennett2015}{Bennett, 2015};
+\protect\hyperlink{ref-delgado2010}{Delgado and Perry, 2010}).
 
 Elit platea faucibus massa diam quis vel. Lorem id sit pretium erat
 convallis vel sed quam. Porttitor lacus aliquet dignissim dis, nibh
@@ -292,7 +321,7 @@ integer. Curae et, cum ut placerat ut. Quisque sagittis gravida
 consequat mattis vitae, rhoncus egestas iaculis in montes.
 
 \hypertarget{theory-and-hypotheses}{%
-\section{3. Theory and Hypotheses}\label{theory-and-hypotheses}}
+\section{Theory and Hypotheses}\label{theory-and-hypotheses}}
 
 Non, posuere posuere egestas. Vel, risus imperdiet ac ipsum. Amet, vel
 ultricies ut finibus parturient egestas. Et urna mi sed pulvinar
@@ -306,7 +335,7 @@ venenatis commodo aliquam pharetra. Molestie mus ante, in amet metus
 quam.
 
 \hypertarget{first-hypothesis}{%
-\subsection{3.1 First Hypothesis}\label{first-hypothesis}}
+\subsection{First Hypothesis}\label{first-hypothesis}}
 
 Quis elit in tristique, hendrerit blandit nec risus purus. Dapibus
 montes finibus amet, eu sit sit. Eu elementum euismod lacinia ipsum per
@@ -337,7 +366,7 @@ erat vel. Vitae libero, per curabitur lorem nulla tristique vestibulum
 tempor blandit.
 
 \hypertarget{second-hypothesis}{%
-\subsection{3.2 Second Hypothesis}\label{second-hypothesis}}
+\subsection{Second Hypothesis}\label{second-hypothesis}}
 
 Ipsum imperdiet et pellentesque suspendisse. Nostra condimentum turpis
 varius. Condimentum luctus ante, porttitor, laoreet a nostra, tempus
@@ -404,7 +433,7 @@ sapien at per sed eget vitae. Sed justo eros ut vitae etiam elit
 suscipit. Habitant enim pharetra in, augue lectus sed tortor at?
 
 \hypertarget{data-and-methods}{%
-\section{4. Data and Methods}\label{data-and-methods}}
+\section{Data and Methods}\label{data-and-methods}}
 
 There are 1091 observations in the dataset. Egestas nullam, et mauris
 inceptos sed scelerisque. Sollicitudin scelerisque in enim sapien
@@ -485,7 +514,7 @@ senectus dapibus ac erat felis ridiculus. Id metus, dapibus volutpat
 suspendisse.
 
 \hypertarget{results}{%
-\section{5. Results}\label{results}}
+\section{Results}\label{results}}
 
 Figure 3 lectus mauris, risus nisl fames vitae aptent ac sed. At et
 eleifend elit per aptent habitant? Arcu magnis rutrum gravida cubilia
@@ -568,7 +597,7 @@ habitasse sed ut sit sed et. Egestas fringilla pharetra pharetra, ipsum
 tincidunt sed. Tincidunt ac pulvinar dictum lorem litora, sed per quis.
 
 \hypertarget{conclusion}{%
-\section{6. Conclusion}\label{conclusion}}
+\section{Conclusion}\label{conclusion}}
 
 Sed ac est id. Justo leo, gravida tincidunt dui vel magnis mattis sed in
 pulvinar? Molestie tortor in ultricies luctus nostra quis, dui risus ut
@@ -602,6 +631,27 @@ Turpis proin turpis eleifend gravida, urna tincidunt eget. Dolor in
 donec sit, vitae sed justo magna est porttitor tempor facilisis.
 
 \hypertarget{references}{%
-\section{References}\label{references}}
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-bennett2015}{}}%
+Bennett, S. (2015). Peanut butter and jelly. \emph{Journal of Bone},
+\emph{1}(12), 3--35.
+
+\leavevmode\vadjust pre{\hypertarget{ref-delgado2010}{}}%
+Delgado, T., and Perry, R. (2010). \emph{Bowl with a tennis ball}. Press
+\& Presser.
+
+\leavevmode\vadjust pre{\hypertarget{ref-gilbert2019}{}}%
+Gilbert, T. (2019). Turning wine into water. In M. Albert (Ed.),
+\emph{The book of ground} (pp. 124--142). Antman.
+
+\leavevmode\vadjust pre{\hypertarget{ref-xie2019}{}}%
+Xie, et al. (2019). \emph{R markdown the definitive guide}. Press \&
+Presser.
+
+\end{CSLReferences}
 
 \end{document}
