@@ -1,41 +1,107 @@
----
-title: "Journals: Random Words With Random Data^[Preliminary draft. Please do not cite or circulate without permission from the author.]"
-subtitle: A Mosk Paper for a RMarkdown Workshop
-author: "Jane Doe^[Department of Science, University of Random. Email: <jane.doe@random.edu>. Website: [www.janedoe.com](https://www.janedoe.com).]" 
-date: "First version: 28 February 20233. This version: `r format(Sys.Date(), '%d %B %Y')`."
-bibliography: references.bib
-csl: apa_7th.csl
-output: 
-  pdf_document:
-    keep_tex: true
-fontsize: 12
-linkcolor: blue
-link-citations: yes
-numbersections: true
-header-includes:
-  - \usepackage{setspace}
----
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Journals: Random Words With Random Data},
+  pdfauthor={Jane Doe},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={red},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
 
-<!-- title page items -->
+\title{Journals: Random Words With Random Data\footnote{Preliminary
+  draft. Please do not cite or circulate without permission from the
+  author.}}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A Mosk Paper for a RMarkdown Workshop}
+\author{Jane Doe\footnote{Department of Science, University of Random.
+  Email:
+  \href{mailto:jane.doe@random.edu}{\nolinkurl{jane.doe@random.edu}}.
+  Website: \href{https://www.janedoe.com}{www.janedoe.com}.}}
+\date{First version: 28 February 20233. This version: 01 March 2023.}
+
+\begin{document}
+\maketitle
 
 Journals: Random Words With Random Data A Mock Paper for an R Markdown
 Workshop Jane Doe 4 March 2020 Preliminary draft. Please do not cite or
 circulate without permission from the author. Department of Science,
 University of Random. Email:
-[jane.doe\@random.edu](mailto:jane.doe@random.edu){.email}. Website:
-www.janedoe.com.
+\href{mailto:jane.doe@random.edu}{\nolinkurl{jane.doe@random.edu}}.
+Website: www.janedoe.com.
 
-<!-- header 1 -->
-
-# Abstract
-
-<!-- paragraph 1 -->
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
 
 Laoreet est, at turpis, et et sodales in volutpat arcu magna massa. At,
 rutrum felis fringilla. Turpis aliquam ante dictum, viverra. Aliquam
 velit auctor efficitur nascetur diam. Quis eu donec. Auctor curabitur
-ut. Elementum est sed et. Curae cras ac nibh.   
-<!-- hard break -->
+ut. Elementum est sed et. Curae cras ac nibh.\\
 Habitant ante, dolor pharetra egestas montes ornare ut iaculis?Odio
 lectus quisque dapibus turpis sit, cursus in interdum in, magna
 sapien.Ac eget mattis, in suspendisse tempus lacinia, sed ullamcorper.
@@ -48,67 +114,56 @@ aliquam sapien. Vel egestas purus nibh consequat orci. Dui, eu, nisi
 sociis enim mi et sodales purus. Quam maecenas ligula elementum neque.
 Sociis curae viverra lorem vitae in natoque ut.
 
-<!-- block quote -->
+~~~~Lorem ipsum dolor sit amet, eros nibh eget mollis.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}-
+Tincidunt Cubilia
 
-|     Lorem ipsum dolor sit amet, eros nibh eget mollis.  
-|     - Tincidunt Cubilia
+\hypertarget{introduction}{%
+\section{1. Introduction}\label{introduction}}
 
-<!-- header 2 -->
-
-# 1. Introduction
-
-<!-- paragraph 2 -->
-
-Vestibulum, **sociis ipsum**. Massa, sed ac eu fringilla sed
-luctus sodales, sit porttitor non. Iaculis litora, accumsan facilisis
-lacinia laoreet rhoncus pellentesque sed. At, viverra enim proin quis
-neque efficitur. Quam sit est sed at ut aliquam. Condimentum efficitur
+Vestibulum, \textbf{sociis ipsum}. Massa, sed ac eu fringilla sed luctus
+sodales, sit porttitor non. Iaculis litora, accumsan facilisis lacinia
+laoreet rhoncus pellentesque sed. At, viverra enim proin quis neque
+efficitur. Quam sit est sed at ut aliquam. Condimentum efficitur
 ultricies tincidunt dui porta faucibus feugiat nec montes. Tincidunt
 congue quisque libero parturient gravida molestie et. Dolor felis sed,
 neque tempus tincidunt dapibus vestibulum in vehicula. Ac mollis mus
 scelerisque per gravida. Fusce curabitur in venenatis suscipit fames mi
 magna magna. Cubilia suspendisse dolor eu eget congue enim in sed. In
 nullam etiam cum iaculis maecenas nulla ac. Sem adipiscing sed sed dolor
-mollis magnis mauris platea velit natoque *consequat in cubilia*.
+mollis magnis mauris platea velit natoque \emph{consequat in cubilia}.
 
-<!-- paragraph 3 -->
+Eu sodales phasellus nullam ornare, est ligula.\footnote{In nunc eu
+  libero arcu posuere varius. Donec nascetur sagittis volutpat et quis
+  quis lectus. Id et cursus ridiculus, sed, hendrerit nisi mauris per!
+  Tincidunt, sed pellentesque, enim sem condimentum justo augue conubia
+  sed. Convallis scelerisque ultricies sed nunc bibendum. Quisque,
+  feugiat sed nisl. Justo et ridiculus nunc interdum dictumst et
+  suscipit morbi lorem quisque elementum risus nisl? Eu mi consequat
+  adipiscing, amet auctor porttitor litora egestas turpis quam amet.
+  Nunc et torquent, enim, ut sed auctor.} Suspendisse facilisi habitasse
+eget tristique at et pellentesque sed. Amet, luctus ex faucibus dapibus
+enim ac mauris. Commodo nec nisl vel massa justo condimentum blandit
+lobortis. Lectus suspendisse tempus at nec fusce facilisis tempor.
+Feugiat maecenas turpis amet non ultricies, inceptos lacinia. Justo
+fames cum tortor blandit, aliquet ac semper. Malesuada risus nulla id
+ultrices, enim orci, eu et, faucibus ornare nec justo. Sit pharetra
+justo habitant sociosqu augue, turpis ut ut integer.\footnote{Non at
+  cubilia ut at nisi}.
 
-Eu sodales phasellus nullam ornare, est ligula.[^1]
-Suspendisse facilisi habitasse eget tristique at et pellentesque sed.
-Amet, luctus ex faucibus dapibus enim ac mauris. Commodo nec nisl vel
-massa justo condimentum blandit lobortis. Lectus suspendisse tempus at
-nec fusce facilisis tempor. Feugiat maecenas turpis amet non ultricies,
-inceptos lacinia. Justo fames cum tortor blandit, aliquet ac semper.
-Malesuada risus nulla id ultrices, enim orci, eu et, faucibus ornare nec
-justo. Sit pharetra justo habitant sociosqu augue, turpis ut ut
-integer.^[Non at cubilia ut at nisi].
+\protect\hyperlink{literature-review}{Literature Review}, dolor eget
+orci integer gravida. Efficitur et augue facilisis turpis, neque
+pharetra venenatis ut. Tempus ut sapien dui habitasse ac enim sit elit
+amet. Ut consequat consectetur ut, donec amet sed. Vel, ut senectus
+vestibulum donec vitae. Duis euismod, ultrices quis proin tristique ac
+felis morbi. Duis elementum phasellus in, sociis nec, ut torquent, in
+duis venenatis ligula. Tristique morbi dictum suspendisse pellentesque
+vehicula aliquet. Tincidunt ac nunc fames. Faucibus ultrices ut ut nisl
+quam nibh ligula sollicitudin. Ut justo non lobortis efficitur, ligula
+eu risus nisi venenatis lacus felis gravida elit. Results neque lorem
+rhoncus nec, facilisis class lectus.
 
-<!-- footnote 1 -->
-
-[^1]: In nunc eu libero arcu posuere varius. Donec nascetur sagittis volutpat
-et quis quis lectus. Id et cursus ridiculus, sed, hendrerit nisi mauris
-per! Tincidunt, sed pellentesque, enim sem condimentum justo augue
-conubia sed. Convallis scelerisque ultricies sed nunc bibendum. Quisque,
-feugiat sed nisl. Justo et ridiculus nunc interdum dictumst et suscipit
-morbi lorem quisque elementum risus nisl? Eu mi consequat adipiscing,
-amet auctor porttitor litora egestas turpis quam amet. Nunc et torquent,
-enim, ut sed auctor.
-
-
-<!-- paragraph 4 -->
-[Literature Review](#literature-review), dolor eget orci integer gravida. Efficitur et augue facilisis turpis, neque pharetra venenatis ut. Tempus ut sapien dui
-habitasse ac enim sit elit amet. Ut consequat consectetur ut, donec amet
-sed. Vel, ut senectus vestibulum donec vitae. Duis euismod, ultrices
-quis proin tristique ac felis morbi. Duis elementum phasellus in, sociis
-nec, ut torquent, in duis venenatis ligula. Tristique morbi dictum
-suspendisse pellentesque vehicula aliquet. Tincidunt ac nunc fames.
-Faucibus ultrices ut ut nisl quam nibh ligula sollicitudin. Ut justo non
-lobortis efficitur, ligula eu risus nisi venenatis lacus felis gravida
-elit. Results neque lorem rhoncus nec, facilisis class lectus.
-
-<!-- paragraph 5 -->
-
-Varius R^2^ natoque dolor nisl donec nostra id dictum
+Varius R\textsuperscript{2} natoque dolor nisl donec nostra id dictum
 turpis. Nisi dignissim sed nec nam mi porttitor quam sit. Iaculis magna
 vel nullam in commodo ante nunc habitant. Luctus ex sapien ac molestie,
 vel amet et ac. Molestie velit in commodo, leo ridiculus mauris nunc, in
@@ -120,15 +175,13 @@ eleifend commodo. Tempus efficitur enim turpis sociis. Habitant mollis.
 In nulla, curae condimentum erat penatibus dapibus leo orci enim.
 Rhoncus egestas laoreet eros turpis. Pretium finibus iaculis praesent,
 viverra sed suscipit ut in. Morbi fusce faucibus phasellus nullam massa.
-Lobortis nulla, in, vel <!-- subscript --> CO~2~.
+Lobortis nulla, in, vel CO\textsubscript{2}.
 
-<!-- paragraph 6 -->
-
-Nisl sed ridiculusn 12--13, ut habitant vitae tempus
-diam, viverra sociis. Nostra metus amet arcu dui ac vehicula maecenas,
-augue vulputate. Netus, convallis et cum ultrices, consequat ac etiam.
-Eget sed viverra mauris pellentesque nibh! Malesuada ipsum pellentesque
-in mus massa, phasellus luctus tempus sit torquent feugiat. Pellentesque
+Nisl sed ridiculusn 12--13, ut habitant vitae tempus diam, viverra
+sociis. Nostra metus amet arcu dui ac vehicula maecenas, augue
+vulputate. Netus, convallis et cum ultrices, consequat ac etiam. Eget
+sed viverra mauris pellentesque nibh! Malesuada ipsum pellentesque in
+mus massa, phasellus luctus tempus sit torquent feugiat. Pellentesque
 lorem nulla eleifend aliquet aliquet class rutrum neque sociosqu augue
 in ridiculus. Ut massa malesuada et in fusce dolor faucibus. Massa
 vestibulum consectetur nam nam. Sit porttitor nunc ante curabitur mattis
@@ -137,26 +190,19 @@ faucibus. Lectus rutrum maximus penatibus. Est velit integer libero
 pellentesque et dolor netus sed. Dignissim tincidunt, dignissim cum.
 Nunc in nunc est sapien donec in sagittis condimentum condimentum
 ullamcorper nulla magna. Sed ad cum sed varius enim adipiscing mollis
-torquent, vitae, ut tempus. Sed dictum non hendrerit in
---- urna, non quis in cum sit turpis viverra vel nullam.
+torquent, vitae, ut tempus. Sed dictum non hendrerit in --- urna, non
+quis in cum sit turpis viverra vel nullam.
 
-<!-- header 3 -->
+\hypertarget{literature-review}{%
+\section{2. Literature Review}\label{literature-review}}
 
-# 2. Literature Review
-
-<!-- paragraph 7 -->
-
-Sit nunc auctor at id diam <!-- citation -->. Tempus platea eu.
-Scelerisque facilisis rhoncus eu lacus vivamus ac, ut. Orci nec metus
-nullam sed et quis. Magnis in vitae, feugiat eleifend dignissim vitae.
-Leo hac sed suscipit quis rhoncus nunc tincidunt. Mi nibh lectus
-faucibus tellus diam sed, convallis. Velit at class velit dis lorem
-taciti morbi in nunc aliquam tristique fames sed. Eu lectus gravida
-congue augue id semper magna libero <!-- citation -->.
-
-<!-- paragraph 8 -->
-
-<!-- citation -->
+Sit nunc auctor at id diam . Tempus platea eu. Scelerisque facilisis
+rhoncus eu lacus vivamus ac, ut. Orci nec metus nullam sed et quis.
+Magnis in vitae, feugiat eleifend dignissim vitae. Leo hac sed suscipit
+quis rhoncus nunc tincidunt. Mi nibh lectus faucibus tellus diam sed,
+convallis. Velit at class velit dis lorem taciti morbi in nunc aliquam
+tristique fames sed. Eu lectus gravida congue augue id semper magna
+libero .
 
 sed et natoque, donec pulvinar sollicitudin quisque vivamus. Tortor,
 lacus morbi at dui aenean amet laoreet elit. Viverra magna litora magna,
@@ -164,13 +210,9 @@ sapien. Donec mi class in integer. Nulla vel ullamcorper tristique dis
 et, sociosqu vel. Pellentesque at mauris pellentesque volutpat non purus
 aenean quam. Congue interdum, id amet class libero, ac velit neque.
 Vitae odio nisl in et, proin, sed sit. Est fames mus pellentesque
-sagittis velit <!-- citation -->.
+sagittis velit .
 
-<!-- paragraph 9 -->
-
-<!-- citation -->
-
-'mus auctor' ipsum. Himenaeos metus in fames aliquam. Erat et eget ut
+`mus auctor' ipsum. Himenaeos metus in fames aliquam. Erat et eget ut
 ipsum augue tincidunt elit venenatis. Dapibus in malesuada, tincidunt
 rhoncus nostra. Orci in, vestibulum. Ullamcorper sem conubia in.
 Molestie eu taciti non consequat. Et eu enim montes class leo varius
@@ -182,9 +224,7 @@ Et felis justo orci sit eu est tincidunt facilisis convallis. Cubilia
 nisl enim amet sociis sed platea habitasse pellentesque. Sodales non
 suscipit, eros consectetur. Vel suspendisse purus congue sed sed ut et.
 Ultrices ut sem. Urna volutpat vivamus velit, consectetur molestie
-turpis in <!-- citation -->.
-
-<!-- paragraph 10 -->
+turpis in .
 
 Elit platea faucibus massa diam quis vel. Lorem id sit pretium erat
 convallis vel sed quam. Porttitor lacus aliquet dignissim dis, nibh
@@ -200,14 +240,25 @@ Ligula nibh etiam elit lacus mauris vel sagittis lacinia. Ut tincidunt
 lorem leo sodales ac enim id. Facilisi ridiculus turpis diam a montes
 eros. Erat urna ante vel nunc eu eros quis conubia massa, a sed, at non.
 
-<!-- list -->
+\begin{itemize}
+\tightlist
+\item
+  Arcu platea velit non malesuada ac magna.
 
-* Arcu platea velit non malesuada ac magna.  
-  * Neque convallis egestas vehicula, nascetur dapibus auctor.  
-* Suspendisse semper erat magnis.  
-  * In fermentum felis et, tincidunt ridiculus est accumsan velit non.  
+  \begin{itemize}
+  \tightlist
+  \item
+    Neque convallis egestas vehicula, nascetur dapibus auctor.\\
+  \end{itemize}
+\item
+  Suspendisse semper erat magnis.
 
-<!-- paragraph 11 -->
+  \begin{itemize}
+  \tightlist
+  \item
+    In fermentum felis et, tincidunt ridiculus est accumsan velit non.
+  \end{itemize}
+\end{itemize}
 
 Tellus sapien, eu orci ac, leo senectus in luctus elementum. Tempus,
 gravida at erat litora cubilia, eget suspendisse donec. Eu aptent magnis
@@ -216,15 +267,11 @@ vitae sollicitudin mi. Conubia sed malesuada interdum tempus. Vestibulum
 lorem dis, feugiat quam facilisis. Ac, habitant dictum adipiscing ut,
 metus ante nibh imperdiet non dapibus. Vitae sapien eu pulvinar cursus
 ac. Sed sapien et a ipsum sed enim eget. Tempor eu mattis, fringilla id
-eros ut <!-- cross reference --> Table 1.
-
-<!-- table 1 -->
+eros ut Table 1.
 
 Existing publications in journals. Author Year Design Journal Benett
-2015 Experimental Journal of Bone Delgado & Perry 2010 Descriptive
+2015 Experimental Journal of Bone Delgado \& Perry 2010 Descriptive
 Journal of Route Gilbert 2019 Predictive Journal of Ground
-
-<!-- paragraph 12 -->
 
 Natoque donec lacinia scelerisque nisl est ut laoreet cras. Quisque
 nulla eu viverra purus lorem a. In praesent, augue finibus velit,
@@ -244,11 +291,8 @@ iaculis tristique. Aliquam consectetur ornare vestibulum quam at
 integer. Curae et, cum ut placerat ut. Quisque sagittis gravida
 consequat mattis vitae, rhoncus egestas iaculis in montes.
 
-<!-- header 4 -->
-
-# 3. Theory and Hypotheses
-
-<!-- paragraph 13 -->
+\hypertarget{theory-and-hypotheses}{%
+\section{3. Theory and Hypotheses}\label{theory-and-hypotheses}}
 
 Non, posuere posuere egestas. Vel, risus imperdiet ac ipsum. Amet, vel
 ultricies ut finibus parturient egestas. Et urna mi sed pulvinar
@@ -261,11 +305,8 @@ viverra morbi, iaculis ultrices, donec ac. Laoreet fringilla sit ut
 venenatis commodo aliquam pharetra. Molestie mus ante, in amet metus
 quam.
 
-<!-- header 5 -->
-
-## 3.1 First Hypothesis
-
-<!-- paragraph 14 -->
+\hypertarget{first-hypothesis}{%
+\subsection{3.1 First Hypothesis}\label{first-hypothesis}}
 
 Quis elit in tristique, hendrerit blandit nec risus purus. Dapibus
 montes finibus amet, eu sit sit. Eu elementum euismod lacinia ipsum per
@@ -280,11 +321,9 @@ rhoncus augue a? Ac leo sed, erat dui a. A tempus senectus dignissim in
 ut, nisl egestas nunc rhoncus posuere eu sed sociosqu. Ut lacus a,
 mauris sed. Vivamus enim nulla per nisl. Sodales quam.
 
-<!-- hypothesis 1 -->
-
-> H1: Suspendisse suspendisse nisi tellus sagittis mus vel lectus tempor.
-
-<!-- paragraph 15 -->
+\begin{quote}
+H1: Suspendisse suspendisse nisi tellus sagittis mus vel lectus tempor.
+\end{quote}
 
 Ut at vitae sodales justo. Placerat in natoque sit convallis ligula
 primis, ipsum urna convallis. Sed elit magna, orci natoque porta, dis
@@ -297,11 +336,8 @@ aliquam morbi. Tempor suspendisse porta, et tincidunt, quam phasellus a
 erat vel. Vitae libero, per curabitur lorem nulla tristique vestibulum
 tempor blandit.
 
-<!-- header 6 -->
-
-## 3.2 Second Hypothesis
-
-<!-- paragraph 16 -->
+\hypertarget{second-hypothesis}{%
+\subsection{3.2 Second Hypothesis}\label{second-hypothesis}}
 
 Ipsum imperdiet et pellentesque suspendisse. Nostra condimentum turpis
 varius. Condimentum luctus ante, porttitor, laoreet a nostra, tempus
@@ -311,11 +347,9 @@ curae fringilla tincidunt nullam. Condimentum auctor vitae eleifend nibh
 pharetra conubia in sed lacus ut et nascetur velit, risus nunc. A netus.
 Sed justo. Eu eros non sit auctor diam. In vestibulum eros mus.
 
-<!-- hypothesis 2 -->
-
-> H2: Conubia, vivamus nec mauris risus nec commodo.
-
-<!-- paragraph 17 -->
+\begin{quote}
+H2: Conubia, vivamus nec mauris risus nec commodo.
+\end{quote}
 
 Nisi velit sem, sollicitudin nam ut, ac vitae et sed sed lobortis
 sapien. Amet, blandit bibendum accumsan, a nulla sed aptent eu, semper.
@@ -325,8 +359,6 @@ bibendum. Condimentum libero metus faucibus tincidunt ut mi ullamcorper
 phasellus. Odio sed, integer sagittis non eu malesuada eu. Sit lectus
 sed class sagittis dictumst, class faucibus ex. Ac velit quam himenaeos
 mollis elit.
-
-<!-- paragraph 18 -->
 
 Nulla et penatibus velit a eu, ultricies donec mi. Nec finibus, justo et
 eu, non. Velit risus pulvinar commodo tortor aptent in risus ac, magnis
@@ -338,8 +370,6 @@ Ullamcorper in ut lacus cum maximus magnis facilisis rhoncus lacus
 suscipit. Nunc himenaeos arcu a. Sed metus eget sed lacinia in
 parturient arcu molestie laoreet.
 
-<!-- paragraph 19 -->
-
 Eget luctus interdum metus aliquet fames nisi varius hendrerit sit
 donec. Interdum diam ac sed purus mi. A augue aliquet natoque odio
 sagittis tincidunt a maecenas. Netus proin tempor aptent maecenas,
@@ -350,14 +380,10 @@ scelerisque aenean eros rhoncus nulla, tincidunt a. Congue in non
 faucibus congue magnis nunc sed. Lacinia, felis nisi mauris quisque sed
 bibendum cum vestibulum risus. Nulla eleifend quam maximus himenaeos
 arcu, malesuada, cubilia erat. Non nec auctor, hendrerit tincidunt duis
-sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum
-<!-- cross reference --> Figure 1.
-
-<!-- figure 1 -->
+sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum Figure
+1.
 
 A screenshot of the Google Scholar homepage.
-
-<!-- paragraph 20 -->
 
 Magna porta proin duis in porta ante. Cubilia enim, maecenas risus
 vestibulum gravida sit nibh. Aenean luctus ut nunc dui taciti sed quis
@@ -377,50 +403,36 @@ venenatis egestas sed, diam mauris vestibulum turpis. Eu dictumst nullam
 sapien at per sed eget vitae. Sed justo eros ut vitae etiam elit
 suscipit. Habitant enim pharetra in, augue lectus sed tortor at?
 
-<!-- header 7 -->
+\hypertarget{data-and-methods}{%
+\section{4. Data and Methods}\label{data-and-methods}}
 
-# 4. Data and Methods
-
-<!-- paragraph 21 -->
-
-There are <!-- inline code --> 1091 observations in the dataset. Egestas
-nullam, et mauris inceptos sed scelerisque. Sollicitudin scelerisque in
-enim sapien pellentesque hendrerit eget cum, tellus. Nam leo volutpat
-faucibus tempor tortor. Arcu donec vehicula aliquam. Justo ipsum,
-venenatis ac non. Lorem mus mi vel cum gravida tincidunt. Mattis metus
-rutrum amet justo. Scelerisque leo torquent volutpat eu, aenean, nullam.
-Porttitor netus pellentesque justo. Id etiam molestie per. Tortor vel in
-sed parturient, orci nec vel ut senectus leo et congue libero faucibus
-porta scelerisque. Suscipit netus montes magnis ut. Placerat nisl
-pretium mus malesuada pellentesque <!-- cross reference --> Figure 2.
-
-<!-- figure 2 -->
+There are 1091 observations in the dataset. Egestas nullam, et mauris
+inceptos sed scelerisque. Sollicitudin scelerisque in enim sapien
+pellentesque hendrerit eget cum, tellus. Nam leo volutpat faucibus
+tempor tortor. Arcu donec vehicula aliquam. Justo ipsum, venenatis ac
+non. Lorem mus mi vel cum gravida tincidunt. Mattis metus rutrum amet
+justo. Scelerisque leo torquent volutpat eu, aenean, nullam. Porttitor
+netus pellentesque justo. Id etiam molestie per. Tortor vel in sed
+parturient, orci nec vel ut senectus leo et congue libero faucibus porta
+scelerisque. Suscipit netus montes magnis ut. Placerat nisl pretium mus
+malesuada pellentesque Figure 2.
 
 Geographic distribution of journals.
 
-<!-- paragraph 22 -->
+Ultrices a2 = b2 + c2 laoreet sollicitudin tellus potenti lacinia mauris
+ut iaculis. Torquent egestas augue nunc est scelerisque ut. Amet sapien
+vestibulum gravida tincidunt id justo vestibulum porttitor. Pellentesque
+tellus vitae, libero maecenas ligula lorem, rutrum. Sit, fermentum
+dictum magna ac? Montes, vivamus taciti donec vitae sapien integer.
+Aliquet cubilia in turpis hendrerit ac! Elit ut, finibus. Primis
+molestie euismod vel, sem mauris orci iaculis et. Lobortis nisi id
+blandit tempus, et tristique et. Elementum tincidunt ut nisl
+pellentesque sed dictumst nisi. Ultricies eros velit erat euismod, nulla
+odio aliquam. Dictum mi amet porttitor ultricies sagittis elementum
+erat. Non, adipiscing tempor. Id mauris non nisl eros quisque? Ultrices
+rhoncus non risus mauris est nunc Equation 1:
 
-Ultrices <!-- inline equation --> a2 = b2 + c2 laoreet sollicitudin
-tellus potenti lacinia mauris ut iaculis. Torquent egestas augue nunc
-est scelerisque ut. Amet sapien vestibulum gravida tincidunt id justo
-vestibulum porttitor. Pellentesque tellus vitae, libero maecenas ligula
-lorem, rutrum. Sit, fermentum dictum magna ac? Montes, vivamus taciti
-donec vitae sapien integer. Aliquet cubilia in turpis hendrerit ac! Elit
-ut, finibus. Primis molestie euismod vel, sem mauris orci iaculis et.
-Lobortis nisi id blandit tempus, et tristique et. Elementum tincidunt ut
-nisl pellentesque sed dictumst nisi. Ultricies eros velit erat euismod,
-nulla odio aliquam. Dictum mi amet porttitor ultricies sagittis
-elementum erat. Non, adipiscing tempor. Id mauris non nisl eros quisque?
-Ultrices rhoncus non risus mauris est nunc <!-- cross reference -->
-Equation 1:
-
-<!-- block equation -->
-
-$$Y_{i} = a + bX_{i} + e_{i}$$
-
-<!-- paragraph 23 -->
-
-<!-- cross reference -->
+\[Y_{i} = a + bX_{i} + e_{i}\]
 
 Table 2 volutpat sapien curae non tortor at velit, amet. Eget velit
 taciti pellentesque lacus non, purus lorem. Faucibus ad, aliquet turpis
@@ -435,14 +447,10 @@ tortor sed. Eget, nisl ornare ut vulputate lorem. Placerat nulla lacus
 maximus sapien viverra mauris et consequat aliquam dictumst vel ac.
 Neque potenti, malesuada quisque. Sapien montes pellentesque eget sapien
 efficitur placerat. Hendrerit est at varius, in. Eget pellentesque dui
-duis turpis magna montes lorem purus. Journals publish, on average,
-<!-- inline code --> 4.68 issues per year.
-
-<!-- table 2 -->
+duis turpis magna montes lorem purus. Journals publish, on average, 4.68
+issues per year.
 
 Descriptive statistics.
-
-<!-- paragraph 24 -->
 
 Auctor natoque mauris libero lacus sem etiam habitant, fusce enim. Porta
 pharetra non, porttitor tempus odio praesent metus at, augue rhoncus.
@@ -454,8 +462,6 @@ tempor scelerisque praesent. Sit, sem, phasellus sodales, at quis
 conubia risus. Ex hac cras ac integer vel amet nec. Dui nisl taciti
 lobortis sagittis amet tempor in enim hendrerit turpis ante. Nunc cursus
 tellus volutpat in sapien imperdiet leo nascetur. Magna ut tellus.
-
-<!-- paragraph 25 -->
 
 Sed diam sem id suspendisse maecenas at. Dui pulvinar, morbi laoreet
 ante. Nisl nibh dictum eu a, massa phasellus, laoreet sem. Id vulputate
@@ -469,8 +475,6 @@ potenti hendrerit id in ligula sed blandit mollis. Eu, a et sit
 adipiscing nullam massa nibh eros. Aliquet maecenas rutrum ipsum dui,
 nascetur, mus donec facilisi. Lectus at ultrices ullamcorper torquent.
 
-<!-- paragraph 26 -->
-
 Nisi, felis donec et, primis ut, integer eu molestie conubia habitasse
 aliquam lacus dapibus. Tempus sed condimentum sociosqu nisl ligula
 ultrices interdum, nascetur. Sed, turpis lobortis pellentesque sed,
@@ -480,13 +484,8 @@ luctus rutrum. Et vitae ornare lorem nec placerat. Id ultrices consequat
 senectus dapibus ac erat felis ridiculus. Id metus, dapibus volutpat
 suspendisse.
 
-<!-- header 8 -->
-
-# 5. Results
-
-<!-- paragraph 27 -->
-
-<!-- cross reference -->
+\hypertarget{results}{%
+\section{5. Results}\label{results}}
 
 Figure 3 lectus mauris, risus nisl fames vitae aptent ac sed. At et
 eleifend elit per aptent habitant? Arcu magnis rutrum gravida cubilia
@@ -501,11 +500,7 @@ pellentesque at penatibus nascetur. Fermentum nec sed et leo in mattis
 suspendisse ut dolor parturient ullamcorper dignissim. Tellus rutrum
 ultricies, sit sed, cras nec tempor egestas vehicula.
 
-<!-- figure 3 -->
-
 A scatterplot of journal metrics.
-
-<!-- paragraph 28 -->
 
 Cras pellentesque, ligula potenti egestas velit pellentesque hac vel
 massa vitae feugiat. Quis vehicula ultricies felis duis aliquet dolor
@@ -516,10 +511,6 @@ hendrerit duis. Nulla tempus accumsan maecenas nullam vitae risus
 potenti nulla penatibus. Hendrerit quis purus ac ac eget vitae. Montes
 dignissim condimentum vitae sed curae, vitae. Mi, vivamus ante tortor
 massa ut molestie platea, pellentesque.
-
-<!-- paragraph 29 -->
-
-<!-- cross reference -->
 
 Table 3 Mauris erat nec scelerisque aptent praesent in, luctus ac
 primis. In tellus nibh turpis augue. Sed, metus non, mollis ultrices
@@ -537,8 +528,6 @@ phasellus sed dui nibh. According to Model 1, every other issue that
 journals publish in a given year is associated with a 1.9 increase
 (standard error = 0.2) in their H5 Index.
 
-<!-- paragraph 30 -->
-
 Tristique aliquam ac nibh, sed inceptos lorem sed, eu diam aliquam odio.
 Maximus elit sed ut ut et. A ante et at lorem, torquent, elit, turpis
 conubia arcu magna diam nostra. Erat suscipit, tincidunt ornare tellus
@@ -551,11 +540,7 @@ malesuada in feugiat dapibus? Amet pellentesque vel tristique, laoreet
 dis ullamcorper efficitur. Mollis imperdiet nec, posuere condimentum
 sed. Litora lorem felis ipsum justo eget morbi sapien volutpat.
 
-<!-- table 3 -->
-
 Regression models.
-
-<!-- paragraph 31 -->
 
 Aenean velit maximus tortor in. At gravida dignissim et conubia. Massa
 ultrices tortor, justo nunc sed senectus sem dis sed ut. Sed urna ac
@@ -567,8 +552,6 @@ hendrerit, aliquam vestibulum. Suscipit aenean, nec, non vestibulum. Eu,
 tortor sociosqu, dictum, eros sit. Facilisi sed integer sed ut interdum
 ut. Sociosqu, torquent. Aenean non taciti magnis erat vel urna vitae
 himenaeos dignissim bibendum.
-
-<!-- paragraph 32 -->
 
 In sed nulla nam laoreet varius habitant ornare. Non lectus in non ut
 tincidunt, magna at senectus. Amet lectus, nostra etiam gravida turpis
@@ -584,11 +567,8 @@ non odio. Blandit aenean donec, libero, tincidunt finibus fringilla
 habitasse sed ut sit sed et. Egestas fringilla pharetra pharetra, ipsum
 tincidunt sed. Tincidunt ac pulvinar dictum lorem litora, sed per quis.
 
-<!-- header 9 -->
-
-# 6. Conclusion
-
-<!-- paragraph 33 -->
+\hypertarget{conclusion}{%
+\section{6. Conclusion}\label{conclusion}}
 
 Sed ac est id. Justo leo, gravida tincidunt dui vel magnis mattis sed in
 pulvinar? Molestie tortor in ultricies luctus nostra quis, dui risus ut
@@ -598,8 +578,6 @@ platea eu hendrerit consequat eu conubia. Facilisis, nec eleifend
 suspendisse. Leo fames, sapien aptent, eu molestie class, sociis. Risus
 faucibus etiam quis cubilia, nullam posuere nec, sed. Etiam viverra ex
 posuere volutpat nunc.
-
-<!-- paragraph 34 -->
 
 Congue ridiculus rhoncus ut facilisis posuere vel quis euismod, nullam
 ridiculus purus non. Rutrum arcu duis sapien nam mattis primis phasellus
@@ -616,8 +594,6 @@ Sit, hendrerit facilisis aliquet ipsum, tellus gravida. Leo himenaeos in
 nulla nisl amet consectetur, donec pulvinar donec eu ut ornare. Vivamus
 lorem magnis, curae interdum id et lacus.
 
-<!-- paragraph 35 -->
-
 Pellentesque turpis quam amet non accumsan. Amet leo tellus, quam
 eleifend in. Ridiculus venenatis laoreet, id a ullamcorper sed. Sed
 dictumst in non dapibus sociis. Turpis, non nunc, ac turpis metus
@@ -625,6 +601,7 @@ aliquet sapien tortor pellentesque nostra. Felis etiam posuere eu.
 Turpis proin turpis eleifend gravida, urna tincidunt eget. Dolor in
 donec sit, vitae sed justo magna est porttitor tempor facilisis.
 
-<!-- header 10 -->
+\hypertarget{references}{%
+\section{References}\label{references}}
 
-# References
+\end{document}
