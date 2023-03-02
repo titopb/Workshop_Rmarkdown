@@ -16,6 +16,34 @@ header-includes:
   - \usepackage{setspace}
 ---
 
+```{r, setup, include=FALSE}
+
+#chunk option defaults
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+
+# packages
+library(dplyr)
+library(ggplot2)
+library(stargazer)
+
+# data
+df_raw <- read.csv("../data/journals.csv")
+
+```
+
+```{r, data}
+
+# transform subfield and english into factors
+# create variable age based on since
+# drop since from the dataframe
+df <- df_raw %>%
+      mutate(subfield = as.factor(subfield), 
+             english = as.factor(english),
+             age = 2023 - since) %>%
+      select(-since)
+
+```
+
 <!-- title page items -->
 
 Journals: Random Words With Random Data A Mock Paper for an R Markdown
@@ -379,7 +407,7 @@ suscipit. Habitant enim pharetra in, augue lectus sed tortor at?
 
 <!-- paragraph 21 -->
 
-There are <!-- inline code --> 1091 observations in the dataset. Egestas
+There are `r nrow(df)` observations in the dataset. Egestas
 nullam, et mauris inceptos sed scelerisque. Sollicitudin scelerisque in
 enim sapien pellentesque hendrerit eget cum, tellus. Nam leo volutpat
 faucibus tempor tortor. Arcu donec vehicula aliquam. Justo ipsum,
@@ -392,7 +420,15 @@ pretium mus malesuada pellentesque <!-- cross reference --> Figure 2.
 
 <!-- figure 2 -->
 
-Geographic distribution of journals.
+```{r, barplot, fig.align='center', out.width="75%", fig.cap="Geographic distrubition of journals. \\label{b_plot}"}
+
+#frequencia journais
+
+ggplot(data = df, aes(x = forcats::fct_infreq(origin))) +
+  geom_bar() +
+  theme_bw() +
+  labs(x ="", y = "Number of journals")
+```
 
 <!-- paragraph 22 -->
 
