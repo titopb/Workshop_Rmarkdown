@@ -86,7 +86,7 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-\usepackage{setspace}
+\usepackage{setspace}\onehalfspacing
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -306,7 +306,7 @@ vitae sollicitudin mi. Conubia sed malesuada interdum tempus. Vestibulum
 lorem dis, feugiat quam facilisis. Ac, habitant dictum adipiscing ut,
 metus ante nibh imperdiet non dapibus. Vitae sapien eu pulvinar cursus
 ac. Sed sapien et a ipsum sed enim eget. Tempor eu mattis, fringilla id
-eros ut Table 1.
+eros ut \autoref{markdown_table}.
 
 \begin{longtable}[]{@{}llll@{}}
 \caption{Existing publications in journals
@@ -432,8 +432,8 @@ scelerisque aenean eros rhoncus nulla, tincidunt a. Congue in non
 faucibus congue magnis nunc sed. Lacinia, felis nisi mauris quisque sed
 bibendum cum vestibulum risus. Nulla eleifend quam maximus himenaeos
 arcu, malesuada, cubilia erat. Non nec auctor, hendrerit tincidunt duis
-sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum Figure
-1.
+sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum
+\autoref{g_scholar}.
 
 \begin{figure}
 
@@ -465,7 +465,7 @@ suscipit. Habitant enim pharetra in, augue lectus sed tortor at?
 \hypertarget{data-and-methods}{%
 \section{Data and Methods}\label{data-and-methods}}
 
-There are 1091 observations in the dataset. Egestas nullam, et mauris
+There are 1062 observations in the dataset. Egestas nullam, et mauris
 inceptos sed scelerisque. Sollicitudin scelerisque in enim sapien
 pellentesque hendrerit eget cum, tellus. Nam leo volutpat faucibus
 tempor tortor. Arcu donec vehicula aliquam. Justo ipsum, venenatis ac
@@ -474,7 +474,7 @@ justo. Scelerisque leo torquent volutpat eu, aenean, nullam. Porttitor
 netus pellentesque justo. Id etiam molestie per. Tortor vel in sed
 parturient, orci nec vel ut senectus leo et congue libero faucibus porta
 scelerisque. Suscipit netus montes magnis ut. Placerat nisl pretium mus
-malesuada pellentesque Figure 2.
+malesuada pellentesque \autoref{b_plot}
 
 \begin{figure}
 
@@ -496,25 +496,28 @@ blandit tempus, et tristique et. Elementum tincidunt ut nisl
 pellentesque sed dictumst nisi. Ultricies eros velit erat euismod, nulla
 odio aliquam. Dictum mi amet porttitor ultricies sagittis elementum
 erat. Non, adipiscing tempor. Id mauris non nisl eros quisque? Ultrices
-rhoncus non risus mauris est nunc Equation 1:
+rhoncus non risus mauris est nunc \autoref{r_equation}:
 
-\[Y_{i} = a + bX_{i} + e_{i}\]
+\begin{equation}
+\label{r_equation}
+Y_{i} = a + bX_{i} + e_{i}
+\end{equation}
 
-Table 2 volutpat sapien curae non tortor at velit, amet. Eget velit
-taciti pellentesque lacus non, purus lorem. Faucibus ad, aliquet turpis
-pharetra non sit congue nec. In mauris tempor et maximus malesuada
-fringilla blandit. Leo praesent tincidunt himenaeos nullam suspendisse.
-Penatibus felis molestie quam magna tincidunt. Purus nisl vivamus
-pulvinar in et maximus nibh potenti. Arcu, facilisis aliquam. Dolor
-faucibus, nulla sed dictum. Eleifend nec nibh, velit faucibus maecenas
-in eleifend varius quam tortor. Phasellus vehicula ligula maecenas
-ultrices dui. Curabitur, mauris nisl aliquet elementum mauris aptent
-tortor sed. Eget, nisl ornare ut vulputate lorem. Placerat nulla lacus
-maximus sapien viverra mauris et consequat aliquam dictumst vel ac.
-Neque potenti, malesuada quisque. Sapien montes pellentesque eget sapien
-efficitur placerat. Hendrerit est at varius, in. Eget pellentesque dui
-duis turpis magna montes lorem purus. Journals publish, on average, 4.68
-issues per year.
+\autoref{s_table} volutpat sapien curae non tortor at velit, amet. Eget
+velit taciti pellentesque lacus non, purus lorem. Faucibus ad, aliquet
+turpis pharetra non sit congue nec. In mauris tempor et maximus
+malesuada fringilla blandit. Leo praesent tincidunt himenaeos nullam
+suspendisse. Penatibus felis molestie quam magna tincidunt. Purus nisl
+vivamus pulvinar in et maximus nibh potenti. Arcu, facilisis aliquam.
+Dolor faucibus, nulla sed dictum. Eleifend nec nibh, velit faucibus
+maecenas in eleifend varius quam tortor. Phasellus vehicula ligula
+maecenas ultrices dui. Curabitur, mauris nisl aliquet elementum mauris
+aptent tortor sed. Eget, nisl ornare ut vulputate lorem. Placerat nulla
+lacus maximus sapien viverra mauris et consequat aliquam dictumst vel
+ac. Neque potenti, malesuada quisque. Sapien montes pellentesque eget
+sapien efficitur placerat. Hendrerit est at varius, in. Eget
+pellentesque dui duis turpis magna montes lorem purus. Journals publish,
+on average, 4.68 issues per year.
 
 \begin{table}[!htbp] \centering 
   \caption{Descriptive statistics.} 
@@ -524,10 +527,10 @@ issues per year.
 \hline \\[-1.8ex] 
 Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
 \hline \\[-1.8ex] 
-H5 Index & 1,091 & 26.361 & 13.814 & 1 & 73 \\ 
-H5 Median & 1,091 & 39.400 & 21.272 & 3 & 109 \\ 
-Issues & 1,091 & 4.676 & 1.786 & 1 & 12 \\ 
-Age & 1,091 & 45.902 & 26.370 & 4 & 161 \\ 
+H5 Index & 1,062 & 26.311 & 13.897 & 1 & 73 \\ 
+H5 Median & 1,062 & 39.322 & 21.420 & 3 & 109 \\ 
+Issues & 1,062 & 4.665 & 1.788 & 1 & 12 \\ 
+Age & 1,062 & 46.115 & 26.572 & 4 & 161 \\ 
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table}
@@ -567,8 +570,8 @@ suspendisse.
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-Figure 3 lectus mauris, risus nisl fames vitae aptent ac sed. At et
-eleifend elit per aptent habitant? Arcu magnis rutrum gravida cubilia
+\autoref{s_plot}lectus mauris, risus nisl fames vitae aptent ac sed. At
+et eleifend elit per aptent habitant? Arcu magnis rutrum gravida cubilia
 diam, ipsum senectus scelerisque rutrum. Elementum, mi arcu nunc sed
 congue neque ac elementum. Quis iaculis sed, ex odio velit. Parturient
 amet aliquam. Vehicula, curae, primis eros sed eu mauris. Massa neque eu
@@ -599,8 +602,8 @@ potenti nulla penatibus. Hendrerit quis purus ac ac eget vitae. Montes
 dignissim condimentum vitae sed curae, vitae. Mi, vivamus ante tortor
 massa ut molestie platea, pellentesque.
 
-Table 3 Mauris erat nec scelerisque aptent praesent in, luctus ac
-primis. In tellus nibh turpis augue. Sed, metus non, mollis ultrices
+\autoref{r_table} Mauris erat nec scelerisque aptent praesent in, luctus
+ac primis. In tellus nibh turpis augue. Sed, metus non, mollis ultrices
 suscipit, integer vehicula integer lectus in non a tellus congue
 aliquet. Nulla leo orci ut id non sed. Donec ut, sed lacus felis
 sociosqu, consequat curae sed leo amet. Sollicitudin suspendisse montes
@@ -612,7 +615,7 @@ scelerisque potenti, lacinia litora, dictum class mollis aliquam maximus
 ex. Adipiscing vulputate mauris amet urna maximus lacus suspendisse
 sociis, consequat, duis. Lectus, dictumst donec pretium nunc velit
 phasellus sed dui nibh. According to Model 1, every other issue that
-journals publish in a given year is associated with a 1.9 increase
+journals publish in a given year is associated with a 2 increase
 (standard error = 0.2) in their H5 Index.
 
 Tristique aliquam ac nibh, sed inceptos lorem sed, eu diam aliquam odio.
@@ -638,24 +641,24 @@ sed. Litora lorem felis ipsum justo eget morbi sapien volutpat.
 \\[-1.8ex] & \multicolumn{4}{c}{H5 Index} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
 \hline \\[-1.8ex] 
- Issues & 1.913$^{***}$ &  &  &  \\ 
-  & (0.227) &  &  &  \\ 
+ Issues & 1.952$^{***}$ & 1.459$^{***}$ & 1.430$^{***}$ & 1.416$^{***}$ \\ 
+  & (0.231) & (0.216) & (0.200) & (0.198) \\ 
   & & & & \\ 
- English &  & 18.646$^{***}$ &  &  \\ 
-  &  & (1.252) &  &  \\ 
+ English &  & 17.246$^{***}$ & 14.518$^{***}$ & 14.962$^{***}$ \\ 
+  &  & (1.251) & (1.175) & (1.171) \\ 
   & & & & \\ 
- Subfield &  &  & $-$12.926$^{***}$ &  \\ 
-  &  &  & (0.896) &  \\ 
+ Subfield &  &  & $-$11.260$^{***}$ & $-$11.338$^{***}$ \\ 
+  &  &  & (0.842) & (0.836) \\ 
   & & & & \\ 
- Age &  &  &  & 0.032$^{*}$ \\ 
-  &  &  &  & (0.016) \\ 
+ Age &  &  &  & 0.055$^{***}$ \\ 
+  &  &  &  & (0.013) \\ 
   & & & & \\ 
- Constant & 17.415$^{***}$ & 9.646$^{***}$ & 36.171$^{***}$ & 24.890$^{***}$ \\ 
-  & (1.137) & (1.185) & (0.781) & (0.839) \\ 
+ Constant & 17.204$^{***}$ & 4.095$^{**}$ & 15.265$^{***}$ & 12.447$^{***}$ \\ 
+  & (1.154) & (1.426) & (1.562) & (1.690) \\ 
   & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & 1,091 & 1,091 & 1,091 & 1,091 \\ 
-R$^{2}$ & 0.061 & 0.169 & 0.160 & 0.004 \\ 
+Observations & 1,062 & 1,062 & 1,062 & 1,062 \\ 
+R$^{2}$ & 0.063 & 0.206 & 0.321 & 0.332 \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 

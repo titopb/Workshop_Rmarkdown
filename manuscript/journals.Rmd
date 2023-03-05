@@ -41,7 +41,7 @@ df <- df_raw %>%
              english = as.factor(english),
              age = 2023 - since) %>%
       select(-since) %>% 
-  filter (origin != "Oceania"). #retirar jornais da Oceania
+  filter (origin != "Oceania") #retirar jornais da Oceania
 
 ```
 
