@@ -40,10 +40,19 @@ df <- df_raw %>%
       mutate(subfield = as.factor(subfield), 
              english = as.factor(english),
              age = 2023 - since) %>%
-      select(-since)
+      select(-since) %>% 
+  filter (origin != "Oceania"). #retirar jornais da Oceania
 
 ```
 
+```{r, models}
+
+lm1 <- lm(h5_index ~ issues, data = df)
+lm2 <- lm(h5_index ~ issues + english, data = df)
+lm3 <- lm(h5_index ~ issues + english + subfield, data = df)
+lm4 <- lm(h5_index ~ issues + english + subfield + age, data = df)
+
+```
 <!-- title page items -->
 
 Journals: Random Words With Random Data A Mock Paper for an R Markdown
@@ -606,11 +615,6 @@ sed. Litora lorem felis ipsum justo eget morbi sapien volutpat.
 <!-- table 3 -->
 
 ```{r, regression_table, echo=FALSE, results="asis"}
-
-lm1 <- lm(h5_index ~ issues, data = df)
-lm2 <- lm(h5_index ~ english, data = df)
-lm3 <- lm(h5_index ~ subfield, data = df)
-lm4 <- lm(h5_index ~ age, data = df)
 
 stargazer(data = list(lm1, lm2, lm3, lm4), type = "latex", 
           header = FALSE, title = "Regression models.", 
