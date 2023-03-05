@@ -379,7 +379,11 @@ sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum
 
 <!-- figure 1 -->
 
-A screenshot of the Google Scholar homepage.
+```{r, screenshot, fig.align="center", out.width="60%", fig.cap="A screenshot of the Google Scholar homepage. \\label{g_scholar}"}
+
+knitr::include_graphics("../image/google_scholar.png")
+
+```
 
 <!-- paragraph 20 -->
 
@@ -535,7 +539,16 @@ ultricies, sit sed, cras nec tempor egestas vehicula.
 
 <!-- figure 3 -->
 
-A scatterplot of journal metrics.
+```{r, scatterplot, fig.align="center", out.width="75%", fig.cap = "A scatterplot of journal metrics. \\label{s_plot}"}
+
+ggplot(data = df, aes(x = h5_median, y = h5_index, color = subfield)) +
+       geom_point() +
+       facet_wrap(. ~ branch) +
+       scale_colour_discrete(name = "Journal Type", breaks = c(0, 1), labels = c("Generalist", "Subfield")) +
+       theme_bw() +
+       labs(x = "H5 Median", y = "H5 Index")
+
+```
 
 <!-- paragraph 28 -->
 

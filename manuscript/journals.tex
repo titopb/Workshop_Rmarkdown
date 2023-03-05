@@ -36,6 +36,16 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -107,7 +117,7 @@
   Email:
   \href{mailto:jane.doe@random.edu}{\nolinkurl{jane.doe@random.edu}}.
   Website: \href{https://www.janedoe.com}{www.janedoe.com}.}}
-\date{First version: 28 February 20233. This version: 01 March 2023.}
+\date{First version: 28 February 20233. This version: 05 March 2023.}
 
 \begin{document}
 \maketitle
@@ -298,9 +308,22 @@ metus ante nibh imperdiet non dapibus. Vitae sapien eu pulvinar cursus
 ac. Sed sapien et a ipsum sed enim eget. Tempor eu mattis, fringilla id
 eros ut Table 1.
 
-Existing publications in journals. Author Year Design Journal Benett
-2015 Experimental Journal of Bone Delgado \& Perry 2010 Descriptive
-Journal of Route Gilbert 2019 Predictive Journal of Ground
+\begin{longtable}[]{@{}llll@{}}
+\caption{Existing publications in journals
+\label{markdown_table}}\tabularnewline
+\toprule()
+Author & Year & Design & Journal \\
+\midrule()
+\endfirsthead
+\toprule()
+Author & Year & Design & Journal \\
+\midrule()
+\endhead
+Benett & 2015 & Experimental & Journal of Bone \\
+Delgado \& Perry & 2010 & Descriptive & Journal of Route \\
+Gilbert & 2019 & Predictive & Journal of Ground \\
+\bottomrule()
+\end{longtable}
 
 Natoque donec lacinia scelerisque nisl est ut laoreet cras. Quisque
 nulla eu viverra purus lorem a. In praesent, augue finibus velit,
@@ -412,7 +435,14 @@ arcu, malesuada, cubilia erat. Non nec auctor, hendrerit tincidunt duis
 sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum Figure
 1.
 
-A screenshot of the Google Scholar homepage.
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{../image/google_scholar} 
+
+}
+
+\caption{A screenshot of the Google Scholar homepage. \label{g_scholar}}\label{fig:screenshot}
+\end{figure}
 
 Magna porta proin duis in porta ante. Cubilia enim, maecenas risus
 vestibulum gravida sit nibh. Aenean luctus ut nunc dui taciti sed quis
@@ -446,7 +476,14 @@ parturient, orci nec vel ut senectus leo et congue libero faucibus porta
 scelerisque. Suscipit netus montes magnis ut. Placerat nisl pretium mus
 malesuada pellentesque Figure 2.
 
-Geographic distribution of journals.
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{journals_files/figure-latex/barplot-1} 
+
+}
+
+\caption{Geographic distrubition of journals. \label{b_plot}}\label{fig:barplot}
+\end{figure}
 
 Ultrices a2 = b2 + c2 laoreet sollicitudin tellus potenti lacinia mauris
 ut iaculis. Torquent egestas augue nunc est scelerisque ut. Amet sapien
@@ -479,7 +516,21 @@ efficitur placerat. Hendrerit est at varius, in. Eget pellentesque dui
 duis turpis magna montes lorem purus. Journals publish, on average, 4.68
 issues per year.
 
-Descriptive statistics.
+\begin{table}[!htbp] \centering 
+  \caption{Descriptive statistics.} 
+  \label{s_table} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+H5 Index & 1,091 & 26.361 & 13.814 & 1 & 73 \\ 
+H5 Median & 1,091 & 39.400 & 21.272 & 3 & 109 \\ 
+Issues & 1,091 & 4.676 & 1.786 & 1 & 12 \\ 
+Age & 1,091 & 45.902 & 26.370 & 4 & 161 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table}
 
 Auctor natoque mauris libero lacus sem etiam habitant, fusce enim. Porta
 pharetra non, porttitor tempus odio praesent metus at, augue rhoncus.
@@ -529,7 +580,14 @@ pellentesque at penatibus nascetur. Fermentum nec sed et leo in mattis
 suspendisse ut dolor parturient ullamcorper dignissim. Tellus rutrum
 ultricies, sit sed, cras nec tempor egestas vehicula.
 
-A scatterplot of journal metrics.
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{journals_files/figure-latex/scatterplot-1} 
+
+}
+
+\caption{A scatterplot of journal metrics. \label{s_plot}}\label{fig:scatterplot}
+\end{figure}
 
 Cras pellentesque, ligula potenti egestas velit pellentesque hac vel
 massa vitae feugiat. Quis vehicula ultricies felis duis aliquet dolor
@@ -569,7 +627,40 @@ malesuada in feugiat dapibus? Amet pellentesque vel tristique, laoreet
 dis ullamcorper efficitur. Mollis imperdiet nec, posuere condimentum
 sed. Litora lorem felis ipsum justo eget morbi sapien volutpat.
 
-Regression models.
+\begin{table}[!htbp] \centering 
+  \caption{Regression models.} 
+  \label{r_table} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{H5 Index} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Issues & 1.913$^{***}$ &  &  &  \\ 
+  & (0.227) &  &  &  \\ 
+  & & & & \\ 
+ English &  & 18.646$^{***}$ &  &  \\ 
+  &  & (1.252) &  &  \\ 
+  & & & & \\ 
+ Subfield &  &  & $-$12.926$^{***}$ &  \\ 
+  &  &  & (0.896) &  \\ 
+  & & & & \\ 
+ Age &  &  &  & 0.032$^{*}$ \\ 
+  &  &  &  & (0.016) \\ 
+  & & & & \\ 
+ Constant & 17.415$^{***}$ & 9.646$^{***}$ & 36.171$^{***}$ & 24.890$^{***}$ \\ 
+  & (1.137) & (1.185) & (0.781) & (0.839) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 1,091 & 1,091 & 1,091 & 1,091 \\ 
+R$^{2}$ & 0.061 & 0.169 & 0.160 & 0.004 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table}
 
 Aenean velit maximus tortor in. At gravida dignissim et conubia. Massa
 ultrices tortor, justo nunc sed senectus sem dis sed ut. Sed urna ac
