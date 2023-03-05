@@ -13,7 +13,7 @@ linkcolor: blue
 link-citations: yes
 numbersections: true
 header-includes:
-  - \usepackage{setspace}
+  - \usepackage{setspace}\onehalfspacing
 ---
 
 ```{r, setup, include=FALSE}
@@ -240,13 +240,16 @@ vitae sollicitudin mi. Conubia sed malesuada interdum tempus. Vestibulum
 lorem dis, feugiat quam facilisis. Ac, habitant dictum adipiscing ut,
 metus ante nibh imperdiet non dapibus. Vitae sapien eu pulvinar cursus
 ac. Sed sapien et a ipsum sed enim eget. Tempor eu mattis, fringilla id
-eros ut <!-- cross reference --> Table 1.
+eros ut \autoref{markdown_table}.
 
 <!-- table 1 -->
+| Author          | Year | Design       | Journal           |
+|-----------------|------|--------------|-------------------|
+| Benett          | 2015 | Experimental | Journal of Bone   |
+| Delgado & Perry | 2010 | Descriptive  | Journal of Route  |
+| Gilbert         | 2019 | Predictive   | Journal of Ground |
 
-Existing publications in journals. Author Year Design Journal Benett
-2015 Experimental Journal of Bone Delgado & Perry 2010 Descriptive
-Journal of Route Gilbert 2019 Predictive Journal of Ground
+: Existing publications in journals \label{markdown_table}
 
 <!-- paragraph 12 -->
 
@@ -375,7 +378,7 @@ faucibus congue magnis nunc sed. Lacinia, felis nisi mauris quisque sed
 bibendum cum vestibulum risus. Nulla eleifend quam maximus himenaeos
 arcu, malesuada, cubilia erat. Non nec auctor, hendrerit tincidunt duis
 sed convallis non, consequat. Ridiculus rutrum morbi, vestibulum
-<!-- cross reference --> Figure 1.
+\autoref{g_scholar}.
 
 <!-- figure 1 -->
 
@@ -420,7 +423,7 @@ rutrum amet justo. Scelerisque leo torquent volutpat eu, aenean, nullam.
 Porttitor netus pellentesque justo. Id etiam molestie per. Tortor vel in
 sed parturient, orci nec vel ut senectus leo et congue libero faucibus
 porta scelerisque. Suscipit netus montes magnis ut. Placerat nisl
-pretium mus malesuada pellentesque <!-- cross reference --> Figure 2.
+pretium mus malesuada pellentesque \autoref{b_plot}
 
 <!-- figure 2 -->
 
@@ -447,18 +450,17 @@ Lobortis nisi id blandit tempus, et tristique et. Elementum tincidunt ut
 nisl pellentesque sed dictumst nisi. Ultricies eros velit erat euismod,
 nulla odio aliquam. Dictum mi amet porttitor ultricies sagittis
 elementum erat. Non, adipiscing tempor. Id mauris non nisl eros quisque?
-Ultrices rhoncus non risus mauris est nunc <!-- cross reference -->
-Equation 1:
+Ultrices rhoncus non risus mauris est nunc \autoref{r_equation}:
 
 <!-- block equation -->
-
-$$Y_{i} = a + bX_{i} + e_{i}$$
+\begin{equation}
+\label{r_equation}
+Y_{i} = a + bX_{i} + e_{i}
+\end{equation}
 
 <!-- paragraph 23 -->
 
-<!-- cross reference -->
-
-Table 2 volutpat sapien curae non tortor at velit, amet. Eget velit
+\autoref{s_table} volutpat sapien curae non tortor at velit, amet. Eget velit
 taciti pellentesque lacus non, purus lorem. Faucibus ad, aliquet turpis
 pharetra non sit congue nec. In mauris tempor et maximus malesuada
 fringilla blandit. Leo praesent tincidunt himenaeos nullam suspendisse.
@@ -476,7 +478,16 @@ duis turpis magna montes lorem purus. Journals publish, on average,
 
 <!-- table 2 -->
 
-Descriptive statistics.
+```{r, summary_table, echo=FALSE, results="asis"}
+
+stargazer(data = df, type = "latex", summary = TRUE, header = FALSE,
+          title = "Descriptive statistics.", 
+          covariate.labels = c("H5 Index", "H5 Median", "Issues", "Age"),
+          omit.summary.stat = c("p25", "p75"),
+          label = "s_table")
+
+```
+
 
 <!-- paragraph 24 -->
 
@@ -522,9 +533,7 @@ suspendisse.
 
 <!-- paragraph 27 -->
 
-<!-- cross reference -->
-
-Figure 3 lectus mauris, risus nisl fames vitae aptent ac sed. At et
+\autoref{s_plot}lectus mauris, risus nisl fames vitae aptent ac sed. At et
 eleifend elit per aptent habitant? Arcu magnis rutrum gravida cubilia
 diam, ipsum senectus scelerisque rutrum. Elementum, mi arcu nunc sed
 congue neque ac elementum. Quis iaculis sed, ex odio velit. Parturient
@@ -564,9 +573,7 @@ massa ut molestie platea, pellentesque.
 
 <!-- paragraph 29 -->
 
-<!-- cross reference -->
-
-Table 3 Mauris erat nec scelerisque aptent praesent in, luctus ac
+\autoref{r_table} Mauris erat nec scelerisque aptent praesent in, luctus ac
 primis. In tellus nibh turpis augue. Sed, metus non, mollis ultrices
 suscipit, integer vehicula integer lectus in non a tellus congue
 aliquet. Nulla leo orci ut id non sed. Donec ut, sed lacus felis
@@ -579,8 +586,8 @@ scelerisque potenti, lacinia litora, dictum class mollis aliquam maximus
 ex. Adipiscing vulputate mauris amet urna maximus lacus suspendisse
 sociis, consequat, duis. Lectus, dictumst donec pretium nunc velit
 phasellus sed dui nibh. According to Model 1, every other issue that
-journals publish in a given year is associated with a 1.9 increase
-(standard error = 0.2) in their H5 Index.
+journals publish in a given year is associated with a `r round(coef(summary(lm1))["issues", "Estimate"], digits = 1)` increase
+(standard error = `r round(coef(summary(lm1))["issues", "Std. Error"], digits = 1)`) in their H5 Index.
 
 <!-- paragraph 30 -->
 
@@ -598,7 +605,23 @@ sed. Litora lorem felis ipsum justo eget morbi sapien volutpat.
 
 <!-- table 3 -->
 
-Regression models.
+```{r, regression_table, echo=FALSE, results="asis"}
+
+lm1 <- lm(h5_index ~ issues, data = df)
+lm2 <- lm(h5_index ~ english, data = df)
+lm3 <- lm(h5_index ~ subfield, data = df)
+lm4 <- lm(h5_index ~ age, data = df)
+
+stargazer(data = list(lm1, lm2, lm3, lm4), type = "latex", 
+          header = FALSE, title = "Regression models.", 
+          keep.stat = c("n", "rsq"),
+          dep.var.labels = "H5 Index",
+          covariate.labels = c("Issues", "English", "Subfield", "Age", "Constant"),
+          star.cutoffs = c(0.05, 0.01, 0.001),
+          label = "r_table")
+
+```
+
 
 <!-- paragraph 31 -->
 
@@ -672,4 +695,4 @@ donec sit, vitae sed justo magna est porttitor tempor facilisis.
 
 <!-- header 10 -->
 
-# References
+# References {-}
